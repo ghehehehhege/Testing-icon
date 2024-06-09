@@ -1,6 +1,6 @@
 {
   "routes": [
     { "src": "/api/icon/(.*)", "dest": "/main.py" },
-    { "src": "/Icon_Emote_LOL.png", "dest": "/Icon_Emote_LOL.png" }
+    { "src": "/(.*)", "dest": "/(.*)" }
   ]
 }
