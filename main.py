@@ -4,6 +4,11 @@ import os
 app = Flask(__name__)
 icon_directory = os.path.dirname(os.path.abspath(__file__))
 
+@app.route('/', methods=['GET'])
+def forbidden():
+    """Handle requests to the root URL and return 403 Forbidden."""
+    return jsonify({"error": "Forbidden"}), 403
+
 @app.route('/api/icon/<filename>', methods=['GET'])
 def get_icon(filename):
     """Serve an individual icon by filename if it exists."""
@@ -17,5 +22,3 @@ def get_icon(filename):
         print(f"Error: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
